@@ -1,0 +1,5 @@
+<form method="POST">
+	{% csrf_token %}
+	<p>Confirm deletion of {{ blog.title }} ?</p>
+	<button type="submit">delete</button>
+</form>

@@ -1,0 +1,22 @@
+<ul>
+	{% if user.is_authenticated %}
+	<p>Welcome {{ user.username }}</p>
+	<button><a href="{% url 'create_blog' %}">create blog</a></button>
+	{% for blog in blogs %}
+		<a href="{% url 'update_blog' blog.id %}">
+			<li>{{ blog.title }}</li>
+		</a>
+			<li>{{ blog.body }}</li>
+	{% endfor %}
+	<button><a href="/logout">Logout</a></button>
+	{% else %}
+	{% for blog in blogs %}
+		<a href="{% url 'show_item' blog.id %}">
+			<li>{{ blog.title }}</li>
+		</a>
+	{% endfor %}
+	<button><a href="/login">Login</a></button>
+	<br>
+	<button><a href="/register">Signup</a></button>
+	{% endif %}
+</ul>

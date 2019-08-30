@@ -1,0 +1,10 @@
+<form method="POST">
+	{% csrf_token %}
+	{{ form }}
+	<button type="submit">save</button>
+</form>
+
+
+{% if blog %}
+	<button><a href="{% url 'delete_blog' blog.id %}">delete</a></button>
+{% endif %}
